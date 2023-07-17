@@ -104,6 +104,6 @@ while True:
     
     catImage = Image.open("assets/DKNG.pbm")
     catImage = ImageOps.invert(catImage)
-    draw.bitmap((0,2), catImage, fill=1)
+    draw.bitmap((0,7), catImage, fill=1)
     disp.image(image)
     disp.show()
