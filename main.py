@@ -101,15 +101,12 @@ while True:
     #     draw.ellipse((100, 20, 120, 40), outline=255, fill=0)  # B button
     # else:  # button is pressed:
     #     draw.ellipse((100, 20, 120, 40), outline=255, fill=1)  # B button filled
-    dkng = Image.open('assets/DKNG.pbm')
-    dkng = dkng.convert('L')
-    draw.bitmap((0,0), dkng)
+    
 
     if not button_A.value and not button_B.value and not button_C.value:
-        catImage = Image.open("happycat_oled_64.ppm").convert("1")
-        disp.image(catImage)
-    else:
-        # Display image.
+        dkng = Image.open('assets/DKNG.pbm')
+        dkng = dkng.convert('L')
+        draw.bitmap((0,0), dkng)
         disp.image(image)
 
     disp.show()
