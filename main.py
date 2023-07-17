@@ -8,7 +8,7 @@
 import board
 import busio
 from digitalio import DigitalInOut, Direction, Pull
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageOps
 import adafruit_ssd1306
 
 # Create the I2C interface.
@@ -105,6 +105,7 @@ while True:
 
     if not button_A.value and not button_B.value and not button_C.value:
         catImage = Image.open("assets/DKNG.pbm")
+        catImage = ImageOps.invert(catImage)
         draw.bitmap((0,0), catImage, fill=1)
         disp.image(image)
     else:
