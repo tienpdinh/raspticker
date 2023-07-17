@@ -11,6 +11,7 @@ from digitalio import DigitalInOut, Direction, Pull
 from PIL import Image, ImageDraw, ImageOps, ImageFont
 import adafruit_ssd1306
 from datetime import datetime
+import datetime as dt
 
 # Create the I2C interface.
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -111,7 +112,7 @@ while True:
     font = ImageFont.truetype("assets/Consolas.ttf", 19)
     draw.text((60,23), "$30.55", font=font, fill=1)
 
-    now = datetime.now(datetime.timezone.cst)
+    now = datetime.now(dt.timezone.cst)
 
     current_time = now.strftime("%H:%M")
     font2 = ImageFont.truetype("assets/Consolas.ttf", 9)
