@@ -113,7 +113,7 @@ while True:
 
     now = datetime.now()
 
-    current_time = now.strftime("%H:%M:%S")
+    current_time = now.strftime("%H:%M")
     font2 = ImageFont.truetype("assets/Consolas.ttf", 9)
     draw.text((60,42), "LU: " + current_time, font=font2, fill=1)
 
