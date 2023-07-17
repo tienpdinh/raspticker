@@ -105,7 +105,8 @@ while True:
 
     if not button_A.value and not button_B.value and not button_C.value:
         catImage = Image.open("assets/DKNG.pbm").convert("1")
-        disp.image(catImage)
+        draw.bitmap((0,0), catImage)
+        disp.image(image)
     else:
         # Display image.
         disp.image(image)
