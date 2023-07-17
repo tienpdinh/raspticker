@@ -104,9 +104,10 @@ while True:
     
 
     if not button_A.value and not button_B.value and not button_C.value:
-        dkng = Image.open('assets/DKNG.pbm')
-        dkng = dkng.convert('L')
-        draw.bitmap((0,0), dkng)
+        catImage = Image.open("DKNG.pbm").convert("1")
+        disp.image(catImage)
+    else:
+        # Display image.
         disp.image(image)
 
     disp.show()
