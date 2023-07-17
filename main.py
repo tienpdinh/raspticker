@@ -107,7 +107,7 @@ while True:
     draw.bitmap((0,7), catImage, fill=1)
 
     font = ImageFont.truetype("assets/Consolas.ttf", 19)
-    draw.text((60,25), "$30.55", font=font, fill=1)
+    draw.text((60,23), "$30.55", font=font, fill=1)
 
     disp.image(image)
     disp.show()
