@@ -102,14 +102,8 @@ while True:
     # else:  # button is pressed:
     #     draw.ellipse((100, 20, 120, 40), outline=255, fill=1)  # B button filled
     
-
-    if not button_A.value and not button_B.value and not button_C.value:
-        catImage = Image.open("assets/DKNG.pbm")
-        catImage = ImageOps.invert(catImage)
-        draw.bitmap((0,0), catImage, fill=1)
-        disp.image(image)
-    else:
-        # Display image.
-        disp.image(image)
-
+    catImage = Image.open("assets/DKNG.pbm")
+    catImage = ImageOps.invert(catImage)
+    draw.bitmap((0,2), catImage, fill=1)
+    disp.image(image)
     disp.show()
