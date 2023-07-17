@@ -10,6 +10,7 @@ import busio
 from digitalio import DigitalInOut, Direction, Pull
 from PIL import Image, ImageDraw, ImageOps, ImageFont
 import adafruit_ssd1306
+from datetime import datetime
 
 # Create the I2C interface.
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -65,6 +66,7 @@ draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
 
 while True:
+    draw.rectangle((0, 0, width, height), outline=0, fill=0)
     # if button_U.value:  # button is released
     #     draw.polygon([(20, 20), (30, 2), (40, 20)], outline=255, fill=0)  # Up
     # else:  # button is pressed:
@@ -108,6 +110,12 @@ while True:
 
     font = ImageFont.truetype("assets/Consolas.ttf", 19)
     draw.text((60,23), "$30.55", font=font, fill=1)
+
+    now = datetime.now()
+
+    current_time = now.strftime("%H:%M:%S")
+    font2 = ImageFont.truetype("assets/Consolas.ttf", 10)
+    draw.text((60,23), "Updated: " + current_time, font=font2, fill=1)
 
     disp.image(image)
     disp.show()
