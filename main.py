@@ -111,7 +111,7 @@ while True:
     font = ImageFont.truetype("assets/Consolas.ttf", 19)
     draw.text((60,23), "$30.55", font=font, fill=1)
 
-    now = datetime.now()
+    now = datetime.now(datetime.timezone.cst)
 
     current_time = now.strftime("%H:%M")
     font2 = ImageFont.truetype("assets/Consolas.ttf", 9)
