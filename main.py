@@ -106,8 +106,8 @@ while True:
     catImage = ImageOps.invert(catImage)
     draw.bitmap((0,7), catImage, fill=1)
 
-    font = ImageFont.truetype("assets/Consolas.ttf", 12)
-    draw.text((60,14), "30.55", font=font, fill=1)
+    font = ImageFont.truetype("assets/Consolas.ttf", 16)
+    draw.text((60,20), "30.55", font=font, fill=1)
 
     disp.image(image)
     disp.show()
