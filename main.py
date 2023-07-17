@@ -8,7 +8,7 @@
 import board
 import busio
 from digitalio import DigitalInOut, Direction, Pull
-from PIL import Image, ImageDraw, ImageOps
+from PIL import Image, ImageDraw, ImageOps, ImageFont
 import adafruit_ssd1306
 
 # Create the I2C interface.
@@ -105,5 +105,9 @@ while True:
     catImage = Image.open("assets/DKNG.pbm")
     catImage = ImageOps.invert(catImage)
     draw.bitmap((0,7), catImage, fill=1)
+
+    font = ImageFont.truetype("assets/Consolas.ttf", 12)
+    draw.text((60,14), "30.55", font=font, fill=1)
+
     disp.image(image)
     disp.show()
