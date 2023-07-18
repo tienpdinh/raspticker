@@ -80,13 +80,13 @@ while True:
         pihole = not pihole
 
     if pihole:
-        cmd = 'pihole version | head -n 1 | cut -d ' ' -f6'
+        cmd = "pihole version | head -n 1 | cut -d ' ' -f6"
         PiHoleVersion = subprocess.check_output(cmd, shell = True)
         cmd = 'pihole status'
         PiHoleStatus = subprocess.check_output(cmd, shell = True)
 
         draw.text((x, top),       "Version: " + PiHoleVersion.decode('ascii'),  font=font, fill=255)
-        draw.text((x, top+8),     PiHoleStatus.decode('ascii') + '%', font=font, fill=255)
+        draw.text((x, top+8),     PiHoleStatus.decode('ascii'), font=font, fill=255)
     else:
         # Shell scripts for system monitoring from here : https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load
         cmd = "hostname -I | cut -d\' \' -f1"
