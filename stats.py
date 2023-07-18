@@ -85,8 +85,8 @@ while True:
         cmd = "pihole status | awk 'NR==7{print}' | cut -d ' ' -f4-"
         PiHoleStatus = subprocess.check_output(cmd, shell = True)
 
-        draw.
-        draw.text((x, top),       "Version: " + PiHoleVersion.decode('ascii'),  font=font, fill=255)
+        draw.text((x, top),       "PiHole", font=font, fill=255)
+        draw.text((x, top),       "Version: " + PiHoleVersion.decode('ascii'), font=font, fill=255)
         draw.text((x, top+8),     PiHoleStatus.decode('ascii'), font=font, fill=255)
     else:
         # Shell scripts for system monitoring from here : https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load
