@@ -66,7 +66,7 @@ bottom = height-padding
 # Move left to right keeping track of the current x position for drawing shapes.
 x = 0
 
-font = ImageFont.truetype('assets/SpaceMono-Regular.ttf', 10)
+font = ImageFont.truetype('assets/Consolas.ttf', 10)
 
 while True:
 
