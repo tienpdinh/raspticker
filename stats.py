@@ -5,6 +5,7 @@ from PIL import Image, ImageDraw, ImageOps, ImageFont
 import adafruit_ssd1306
 from datetime import datetime
 import datetime as dt
+import subprocess
 
 # Create the I2C interface.
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -92,5 +93,5 @@ while True:
 
     # Display image.
     disp.image(image)
-    disp.display()
+    disp.show()
     time.sleep(.1)
