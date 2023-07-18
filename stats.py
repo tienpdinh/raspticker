@@ -1,11 +1,10 @@
 import board
 import busio
 from digitalio import DigitalInOut, Direction, Pull
-from PIL import Image, ImageDraw, ImageOps, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 import adafruit_ssd1306
-from datetime import datetime
-import datetime as dt
 import subprocess
+import time
 
 # Create the I2C interface.
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -61,13 +60,13 @@ draw.rectangle((0,0,width,height), outline=0, fill=0)
 
 # Draw some shapes.
 # First define some constants to allow easy resizing of shapes.
-padding = -2
+padding = 0
 top = padding
 bottom = height-padding
 # Move left to right keeping track of the current x position for drawing shapes.
 x = 0
 
-font = ImageFont.truetype('assets/Consolas.ttf', 8)
+font = ImageFont.truetype('assets/Consolas.ttf', 10)
 
 while True:
 
