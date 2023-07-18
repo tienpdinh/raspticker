@@ -82,7 +82,7 @@ while True:
     if pihole:
         cmd = "pihole version | head -n 1 | cut -d ' ' -f6"
         PiHoleVersion = subprocess.check_output(cmd, shell = True)
-        cmd = 'pihole status | awk 'NR==7{print}' | cut -d ' ' -f4-'
+        cmd = "pihole status | awk 'NR==7{print}' | cut -d ' ' -f4-"
         PiHoleStatus = subprocess.check_output(cmd, shell = True)
 
         draw.
