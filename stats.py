@@ -76,15 +76,16 @@ while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0,0,width,height), outline=0, fill=0)
 
-    if not button_A.value:
+    if button_A.value:
         pihole = not pihole
 
     if pihole:
         cmd = "pihole version | head -n 1 | cut -d ' ' -f6"
         PiHoleVersion = subprocess.check_output(cmd, shell = True)
-        cmd = 'pihole status'
+        cmd = 'pihole status | awk 'NR==7{print}' | cut -d ' ' -f4-'
         PiHoleStatus = subprocess.check_output(cmd, shell = True)
 
+        draw.
         draw.text((x, top),       "Version: " + PiHoleVersion.decode('ascii'),  font=font, fill=255)
         draw.text((x, top+8),     PiHoleStatus.decode('ascii'), font=font, fill=255)
     else:
@@ -104,9 +105,9 @@ while True:
 
         draw.text((x, top),       "IP: " + IP.decode('ascii'),  font=font, fill=255)
         draw.text((x, top+8),     CPU.decode('ascii') + '%', font=font, fill=255)
-        draw.text((x, top+16),    MemUsage.decode('ascii'),  font=font, fill=255)
-        draw.text((x, top+25),    Disk.decode('ascii'),  font=font, fill=255)
-        draw.text((x, top+33),    "CPU Temp: "+ Temp.decode('ascii'), font=font, fill=255)
+        draw.text((x, top+16),    "CPU Temp: "+ Temp.decode('ascii'), font=font, fill=255)
+        draw.text((x, top+25),    MemUsage.decode('ascii'),  font=font, fill=255)
+        draw.text((x, top+33),    Disk.decode('ascii'),  font=font, fill=255)
 
     # Display image.
     disp.image(image)
