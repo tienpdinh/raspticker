@@ -1,8 +1,8 @@
-from inky import InkyPHAT
+from inky.auto import auto
 from PIL import Image, ImageFont, ImageDraw
 from font_fredoka_one import FredokaOne
 
-inky_display = InkyPHAT("yellow")
+inky_display = auto()
 inky_display.set_border(inky_display.WHITE)
 
 img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
