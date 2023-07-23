@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from inky.auto import auto
 from PIL import Image, ImageFont, ImageDraw
 from font_fredoka_one import FredokaOne
