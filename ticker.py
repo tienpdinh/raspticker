@@ -1,5 +1,5 @@
 from inky.auto import auto
-from PIL import Image, ImageFont, ImageDraw
+from PIL import Image, ImageFont, ImageDraw, ImageOps
 
 inky_display = auto()
 inky_display.set_border(inky_display.WHITE)
@@ -14,6 +14,10 @@ w, h = font.getsize(message)
 x = (inky_display.WIDTH / 2) - (w / 2)
 y = (inky_display.HEIGHT / 2) - (h / 2)
 
-draw.text((x, y), message, inky_display.YELLOW, font)
+dkng = Image.open("./assets/DKNG.pbm")
+dkng = ImageOps.invert(dkng)
+draw.bitmap((0,7), dkng, fill=1)
+
+# draw.text((x, y), message, inky_display.YELLOW, font)
 inky_display.set_image(img)
 inky_display.show()
