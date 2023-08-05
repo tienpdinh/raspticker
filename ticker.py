@@ -1,23 +1,33 @@
 from inky.auto import auto
 from PIL import Image, ImageFont, ImageDraw, ImageOps
+import FinancialModelingPrepApi
+import asyncio
+from secret import API_KEY
 
 inky_display = auto()
 inky_display.set_border(inky_display.WHITE)
 
-img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
-draw = ImageDraw.Draw(img)
+async def main():
+    fmp = FinancialModelingPrepApi(API_KEY)
+    ticker = 'DKNG'
+    while True:
+        img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
+        draw = ImageDraw.Draw(img)
 
-font = ImageFont.truetype('./assets/Consolas.ttf', 22)
+        font = ImageFont.truetype('./assets/Consolas.ttf', 22)
+        price = await asyncio.run(fmp.get_price(ticker))
+        ticker_w, ticker_h = font.getsize(ticker)
+        price_w, price_h = font.getsize(price)
+        ticker_x = (inky_display.WIDTH / 2) - (ticker_w / 2)
+        ticker_y = (inky_display.HEIGHT / 2) - (ticker_h / 2) - ticker_h
+        price_x = (inky_display.WIDTH / 2) - (price_w / 2)
+        price_y = (inky_display.HEIGHT / 2) - (price_h / 2) + price_h
 
-message = "Hello, World!"
-w, h = font.getsize(message)
-x = (inky_display.WIDTH / 2) - (w / 2)
-y = (inky_display.HEIGHT / 2) - (h / 2)
+        draw.text((ticker_x, ticker_y), ticker, inky_display.BLACK, font)
+        draw.text((price_x, price_y), price, inky_display.BLACK, font)
+        inky_display.set_image(img)
+        inky_display.show()
 
-dkng = Image.open("./assets/DKNG.pbm")
-# dkng = ImageOps.invert(dkng)
-draw.bitmap((0,7), dkng, fill=1)
+        await asyncio.sleep(5)
 
-# draw.text((x, y), message, inky_display.YELLOW, font)
-inky_display.set_image(img)
-inky_display.show()
+asyncio.run(main())
