@@ -15,7 +15,7 @@ async def main():
         img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
         draw = ImageDraw.Draw(img)
         font = ImageFont.truetype('./assets/Consolas.ttf', 24)
-        font_medium = ImageFont.truetype('./assets/Consolas.ttf', 17)
+        font_medium = ImageFont.truetype('./assets/Consolas-Bold.ttf', 18)
         font_small = ImageFont.truetype('./assets/Consolas.ttf', 12)
         price = '$' + str(await fmp.get_stock_price(ticker))
         now = datetime.now()
@@ -36,7 +36,7 @@ async def main():
         inky_display.set_image(img)
         inky_display.show()
 
-        print(f'Updated at {datetime.now()}!')
+        print(f'Updated at {now}!')
         await asyncio.sleep(6*60)
 
 asyncio.run(main())
