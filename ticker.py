@@ -15,7 +15,7 @@ async def main():
         img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
         draw = ImageDraw.Draw(img)
         font = ImageFont.truetype('./assets/Consolas.ttf', 22)
-        font_smaller = ImageFont.truetype('./assets/SpaceMono-Regular', 15)
+        font_smaller = ImageFont.truetype('./assets/SpaceMono-Regular.ttf', 15)
         price = '$' + str(await fmp.get_stock_price(ticker))
         now = datetime.now()
         now_str = 'Updated: ' + now.strftime("%m/%d/%Y, %H:%M:%S")
