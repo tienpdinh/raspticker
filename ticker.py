@@ -16,7 +16,7 @@ async def main():
         draw = ImageDraw.Draw(img)
 
         font = ImageFont.truetype('./assets/Consolas.ttf', 22)
-        price = await asyncio.run(fmp.get_price(ticker))
+        price = await asyncio.run(fmp.get_stock_price(ticker))
         ticker_w, ticker_h = font.getsize(ticker)
         price_w, price_h = font.getsize(price)
         ticker_x = (inky_display.WIDTH / 2) - (ticker_w / 2)
