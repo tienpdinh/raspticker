@@ -18,7 +18,7 @@ async def main():
         font = ImageFont.truetype('./assets/Consolas.ttf', 22)
         price = await fmp.get_stock_price(ticker)
         ticker_w, ticker_h = font.getsize(ticker)
-        price_w, price_h = font.getsize(price)
+        price_w, price_h = font.getsize(str(price))
         ticker_x = (inky_display.WIDTH / 2) - (ticker_w / 2)
         ticker_y = (inky_display.HEIGHT / 2) - (ticker_h / 2) - ticker_h
         price_x = (inky_display.WIDTH / 2) - (price_w / 2)
