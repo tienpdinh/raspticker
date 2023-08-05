@@ -15,7 +15,7 @@ x = (inky_display.WIDTH / 2) - (w / 2)
 y = (inky_display.HEIGHT / 2) - (h / 2)
 
 dkng = Image.open("./assets/DKNG.pbm")
-dkng = ImageOps.invert(dkng)
+# dkng = ImageOps.invert(dkng)
 draw.bitmap((0,7), dkng, fill=1)
 
 # draw.text((x, y), message, inky_display.YELLOW, font)
