@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 
 inky_display = auto()
 inky_display.set_border(inky_display.WHITE)
-fmp = FinancialModelingPrepApi(secret.API_KEY)
+fmp = FinancialModelingPrepApi(str(secret.API_KEY))
 
 async def main():
     ticker = 'DKNG'
