@@ -33,7 +33,7 @@ async def main():
         draw.text((ticker_x, ticker_y), ticker, inky_display.BLACK, font_medium)
         draw.text((price_x, price_y), price, inky_display.YELLOW, font)
         draw.text((now_x, now_y), now_str, inky_display.BLACK, font_small)
-        inky_display.set_image(img)
+        inky_display.set_image(img.rotate(180))
         inky_display.show()
 
         print(f'Updated at {now}!')
