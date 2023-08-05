@@ -2,13 +2,13 @@ from inky.auto import auto
 from PIL import Image, ImageFont, ImageDraw, ImageOps
 import FinancialModelingPrepApi
 import asyncio
-from secret import API_KEY
+import secret
 
 inky_display = auto()
 inky_display.set_border(inky_display.WHITE)
 
 async def main():
-    fmp = FinancialModelingPrepApi(API_KEY)
+    fmp = FinancialModelingPrepApi(secret.API_KEY)
     ticker = 'DKNG'
     while True:
         img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
