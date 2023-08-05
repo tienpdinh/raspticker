@@ -25,7 +25,7 @@ async def main():
         price_y = (inky_display.HEIGHT / 2) - (price_h / 2) + price_h
 
         draw.text((ticker_x, ticker_y), ticker, inky_display.BLACK, font)
-        draw.text((price_x, price_y), price, inky_display.BLACK, font)
+        draw.text((price_x, price_y), str(price), inky_display.BLACK, font)
         inky_display.set_image(img)
         inky_display.show()
 
