@@ -3,12 +3,13 @@ from PIL import Image, ImageFont, ImageDraw, ImageOps
 import FinancialModelingPrepApi
 import asyncio
 import secret
+from datetime import datetime, timezone
 
 inky_display = auto()
 inky_display.set_border(inky_display.WHITE)
+fmp = FinancialModelingPrepApi(secret.API_KEY)
 
 async def main():
-    fmp = FinancialModelingPrepApi(secret.API_KEY)
     ticker = 'DKNG'
     while True:
         img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
@@ -28,6 +29,7 @@ async def main():
         inky_display.set_image(img)
         inky_display.show()
 
+        print(f'Updated at {datetime.now(timezone.utc)}!')
         await asyncio.sleep(5)
 
 asyncio.run(main())
